@@ -34,6 +34,10 @@ def update(host, port, collection, data):
 	else:
 		print "Success to update!"
 
+def main(opt):
+	pass
+	
+
 if __name__ == "__main__":
 	usage = """usage: %prog [options]
 	ex) %prog -i unique_document_id -f field_to_update -s server1,server2,server3,..
@@ -47,4 +51,8 @@ if __name__ == "__main__":
 
 	(options, args) = parser.parse_args()
 
-	parser.print_help()
+	if len(args) < 4:
+		parser.print_help()
+		sys.exit(2)
+
+	main(options)
